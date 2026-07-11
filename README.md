@@ -70,3 +70,9 @@ CMakeLists.txt
 - [ ] Apple notarization for distribution outside this machine
 - [ ] Mono bus support (currently stereo in/out only)
 - [ ] Automated test suite
+
+## License
+
+MIT — see [LICENSE](LICENSE). Covers the architecture shown in this
+repository (JUCE plugin wrapper, UI, build setup). As noted above, the
+DSP calibration used in the actual product is not included here.
