@@ -3,6 +3,12 @@ project(PhonkFinisher VERSION 0.1.0)
 
 add_subdirectory(libs/JUCE)
 
+if(APPLE)
+    set(PHONK_FORMATS VST3 AU Standalone)
+else()
+    set(PHONK_FORMATS VST3 Standalone)
+endif()
+
 juce_add_plugin(PhonkFinisher
     COMPANY_NAME "MontagemFinisher"
     IS_SYNTH FALSE
@@ -13,7 +19,7 @@ juce_add_plugin(PhonkFinisher
     COPY_PLUGIN_AFTER_BUILD TRUE
     PLUGIN_MANUFACTURER_CODE Mtgf
     PLUGIN_CODE Fnsh
-    FORMATS VST3 AU Standalone
+    FORMATS ${PHONK_FORMATS}
     PRODUCT_NAME "Phonk Finisher")
 
 target_sources(PhonkFinisher PRIVATE

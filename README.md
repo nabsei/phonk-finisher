@@ -4,9 +4,19 @@
 
 Drop in a raw 808, kick, or loop, turn the single `Amount` knob, and get a driven,
 tonally-shaped, level-matched sound — no mixing knowledge required. Built with
-[JUCE](https://juce.com/), ships as VST3 / AU / Standalone on macOS.
+[JUCE](https://juce.com/), ships as VST3 / AU / Standalone on macOS and Windows.
 
-![Phonk Finisher UI at 50% and 90% amount](assets/screenshot.png)
+<p align="center">
+  <img src="assets/screenshot.png" alt="Phonk Finisher plugin UI">
+</p>
+
+<p align="center">
+  <strong><a href="https://github.com/nabsei/phonk-finisher/releases/latest">⬇ Download the latest beta</a></strong> — macOS and Windows, free.
+</p>
+
+<p align="center">
+  Also listed on <a href="https://www.kvraudio.com/product/phonk-finisher-by-montagemfinisher">KVR Audio</a> and <a href="https://montagemfinisher.itch.io/phonk-finisher">itch.io</a>.
+</p>
 
 ## Why one knob
 
@@ -66,8 +76,8 @@ CMakeLists.txt
 
 ## Open items
 
-- [ ] Windows build (currently only built/tested on macOS)
-- [ ] Apple notarization for distribution outside this machine
+- [ ] Code signing / notarization for both macOS and Windows (current
+      beta requires a one-time manual step on first install)
 - [ ] Mono bus support (currently stereo in/out only)
 - [ ] Automated test suite
 
