@@ -35,6 +35,7 @@ void FinisherProcessor::prepareToPlay(double sampleRate, int)
     lastSampleRate = sampleRate;
 
     lowpassCoef = 1.0f - std::exp(-2.0f * juce::MathConstants<float>::pi * 1200.0f / (float)sampleRate);
+    subLowpassCoef = 1.0f - std::exp(-2.0f * juce::MathConstants<float>::pi * 150.0f / (float)sampleRate);
 
     amountSmoothed.reset(sampleRate, 0.03);
     amountSmoothed.setCurrentAndTargetValue(*apvts.getRawParameterValue("amount"));
@@ -71,8 +72,11 @@ void FinisherProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::Mid
         auto* samples = buffer.getWritePointer(ch);
         for (int i = 0; i < buffer.getNumSamples(); ++i)
         {
-            // Drive
-            float x = saturator.functionToUse(samples[i]);
+            // Drive -- sub-protected: split off everything below the crossover
+            // before saturating, so the 808/sub-bass fundamental stays clean.
+            subLowpassState[ch] += subLowpassCoef * (samples[i] - subLowpassState[ch]);
+            const float subBand = subLowpassState[ch];
+            float x = subBand + saturator.functionToUse(samples[i] - subBand);
 
             // Simple tone tilt
             lowpassState[ch] += lowpassCoef * (x - lowpassState[ch]);

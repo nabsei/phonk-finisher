@@ -51,6 +51,12 @@ private:
     float lowpassState[2] = { 0.0f, 0.0f };
     float lowpassCoef = 0.0f;
 
+    // Sub-band split ahead of the drive stage: phonk mixing convention is to
+    // drive the mids for presence/grit while keeping sub frequencies (the 808)
+    // clean, so only content above this crossover is saturated.
+    float subLowpassState[2] = { 0.0f, 0.0f };
+    float subLowpassCoef = 0.0f;
+
     // Simple envelope-follower limiter (illustrative -- see class comment above).
     float limiterEnvelope[2] = { 0.0f, 0.0f };
 

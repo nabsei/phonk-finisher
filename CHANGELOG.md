@@ -9,6 +9,16 @@ beta:
 - **MINOR** (0.x.0): new features or notable user-facing changes
 - **MAJOR** (1.0.0+): first stable release, then breaking changes only
 
+## [0.3.0] - 2026-07-16
+
+### Changed
+- The drive/saturation stage is now sub-protected: content below ~150Hz is
+  split off before saturating and summed back in clean, so cranking Amount
+  adds mid/high grit and harmonics without distorting the 808/sub-bass
+  fundamental underneath it -- matches standard phonk mixing-chain practice
+  of driving the mids while keeping subs clean, researched against
+  production references.
+
 ## [0.2.0] - 2026-07-15
 
 ### Fixed
