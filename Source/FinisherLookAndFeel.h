@@ -1,17 +1,19 @@
 #pragma once
 #include <juce_gui_basics/juce_gui_basics.h>
 
-// Brand palette, shared across the project's other assets: dark background,
-// red = "before", green = "after". The knob arc interpolates between them
-// as the single "amount" parameter increases, so the color itself communicates
-// the effect strength instead of a plain gray dial.
+// Same Bumpin Audio catalogue palette as Delta Zero/Delta Blind (and the
+// logo): cyan = "before"/idle, magenta = "after"/engaged. The knob arc
+// interpolates between them as the single "amount" parameter increases,
+// so the color itself communicates the effect strength instead of a plain
+// gray dial -- same cyan=calm/magenta=intense convention used across the
+// whole catalogue, not the original red/green.
 class FinisherLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
-    inline static const juce::Colour bg        { 0xff0d0d12 };
+    inline static const juce::Colour bg        { 0xff0a0912 };
     inline static const juce::Colour bgLighter  { 0xff1c1c24 };
-    inline static const juce::Colour red        { 0xffff3b30 };
-    inline static const juce::Colour green      { 0xff30d158 };
+    inline static const juce::Colour cyan       { 0xff29c2d6 };
+    inline static const juce::Colour magenta    { 0xffe0479c };
     inline static const juce::Colour textDim    { 0xffa0a0aa };
 
     FinisherLookAndFeel()
@@ -28,7 +30,7 @@ public:
         const auto centre = bounds.getCentre();
         const auto radius = juce::jmin(bounds.getWidth(), bounds.getHeight()) * 0.5f;
         const auto angle = rotaryStartAngle + sliderPosProportional * (rotaryEndAngle - rotaryStartAngle);
-        const auto knobColour = red.interpolatedWith(green, sliderPosProportional);
+        const auto knobColour = cyan.interpolatedWith(magenta, sliderPosProportional);
 
         // outer track
         {

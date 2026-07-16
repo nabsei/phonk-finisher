@@ -60,7 +60,7 @@ FinisherEditor::FinisherEditor(FinisherProcessor& p)
     amountSlider.onValueChange = [this] { updateValueLabel(); repaint(); };
     updateValueLabel();
 
-    brandLabel.setText("@montagem.finisher", juce::dontSendNotification);
+    brandLabel.setText("Bumpin Audio", juce::dontSendNotification);
     brandLabel.setJustificationType(juce::Justification::centredRight);
     brandLabel.setColour(juce::Label::textColourId, FinisherLookAndFeel::textDim.withAlpha(0.5f));
     brandLabel.setFont(juce::Font(juce::FontOptions(10.0f, juce::Font::plain)));
@@ -92,12 +92,12 @@ void FinisherEditor::paint(juce::Graphics& g)
     g.fillAll();
 
     // Both sides now share one height pattern and one colour (interpolated
-    // red -> green with amount, matching the knob) instead of a fixed
-    // red-left/green-right split with two different random seeds and two
-    // different scaling formulas. The old asymmetry (different shape, and
-    // colour that never moved with amount) read as a bug, not a design choice.
+    // cyan -> magenta with amount, matching the knob) instead of a fixed
+    // left/right split with two different random seeds and two different
+    // scaling formulas. The old asymmetry (different shape, and colour
+    // that never moved with amount) read as a bug, not a design choice.
     const float amount = (float)amountSlider.getValue();
-    const auto colour = FinisherLookAndFeel::red.interpolatedWith(FinisherLookAndFeel::green, amount);
+    const auto colour = FinisherLookAndFeel::cyan.interpolatedWith(FinisherLookAndFeel::magenta, amount);
 
     auto knobArea = amountSlider.getBounds().toFloat();
     const float barAreaWidth = 70.0f;

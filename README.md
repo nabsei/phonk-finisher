@@ -41,8 +41,8 @@ here — that tuning is the actual product, not open source at this stage.
 ## Features
 
 - Single macro parameter (`Amount`) driving the whole signal chain
-- Custom dark-themed UI: the knob's glow and arc shift from red to green as the
-  effect intensifies, matching the "before / after" visual identity used in demos
+- Custom dark-themed UI: the knob's glow and arc shift from cyan to magenta as
+  the effect intensifies, matching the Bumpin Audio catalogue palette
 - Denormal-safe processing and parameter smoothing (no zipper noise when
   automating or turning the knob live)
 - Builds as **VST3**, **AU** (passes `auval` validation), and a **Standalone** app
@@ -107,6 +107,11 @@ funk automotivo / phonk production, in signal-chain order:
 - [Montagem Widener](https://github.com/nabsei/montagem-widener) — stereo width
 - [Montagem Punch](https://github.com/nabsei/montagem-punch) — transient shaping
 
-Also by the same author: [Delta](https://github.com/nabsei/delta), a
-phase-cancellation null-test / difference-checker plugin (a different tool
-for a different audience — audio engineers doing verification work).
+Also from Bumpin Audio: [Yano Log](https://github.com/nabsei/yano-log),
+[Yano Finish](https://github.com/nabsei/yano-finish),
+[Yano Space](https://github.com/nabsei/yano-space),
+[Yano Swing](https://github.com/nabsei/yano-swing) — a one-knob amapiano
+log drum synth, finisher, space/width processor, and MIDI groove tool --
+and the Delta line for audio engineers, [Delta Zero](https://github.com/nabsei/delta-zero)
+(phase-cancellation null-test / difference-checker) and
+[Delta Blind](https://github.com/nabsei/delta-blind) (loudness-matched A/B compare).
